@@ -7,6 +7,6 @@ from . import views
 
 
 #主页的url
-urlpatterns = {
+urlpatterns = [
     path('', views.index, name='index')
-}
+]

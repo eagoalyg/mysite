@@ -8,5 +8,7 @@ from . import views
 
 #主页的url
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('program', views.program, name='program'),
+    path('diary', views.diary, name='diary'),
 ]

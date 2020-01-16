@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Title, Content
+from .models import BlogType, Blog
 
 
-#注册Title
-admin.site.register(Title)
+#注册BlogType
+admin.site.register(BlogType)
 
 
-#注册Content
-admin.site.register(Content)
+#注册Blog
+admin.site.register(Blog)

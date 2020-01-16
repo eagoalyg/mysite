@@ -1,9 +1,12 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+from .models import Blog
 
 
 def index(request):
-    response = "welcome to eagoalyg's website"
-    return HttpResponse(response)
+    blogs = Blog.objects.all()
+    context = {'blogs': blogs}
+    return render(request, 'blog/index.html', context)
 
 
 def program(request):

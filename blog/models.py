@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 
 #blog应用的题目
 class BlogType(models.Model):
-    blog_type = models.CharField(max_length=15)
+    type_name = models.CharField(max_length=15)
     #添加构造方法使返回的对象更易读
     def __str__(self):
-        return self.blog_type
+        return self.type_name
 
 
 #blog应用的内容

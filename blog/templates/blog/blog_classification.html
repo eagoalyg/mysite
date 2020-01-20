@@ -1,6 +1,6 @@
 <h1>{{ blog_type.type_name }}</h1>
 {% for blog in blogs %}
-	<a href="{% url 'blog_detail' blog.pk %}"><h3>{{ blog.title }}</h3></a>
+	<a href="{% url 'blog:blog_detail' blog.pk %}"><h3>{{ blog.title }}</h3></a>
 	<p>{{ blog.content|truncatechars:30 }}</p>
 {% empty %}
 	<p>--暂无博客,敬请期待--</p>

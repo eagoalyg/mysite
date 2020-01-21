@@ -1,7 +1,24 @@
-<h1>{{ blog_type.type_name }}</h1>
-{% for blog in blogs %}
-	<a href="{% url 'blog:blog_detail' blog.pk %}"><h3>{{ blog.title }}</h3></a>
-	<p>{{ blog.content|truncatechars:30 }}</p>
-{% empty %}
-	<p>--暂无博客,敬请期待--</p>
-{% endfor %}
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block title %}EAGOALYG|首页{% endblock %}
+
+{% block breadcrumb %}
+	<nav aria-label="breadcrumb">
+	  	<ol class="breadcrumb">
+	    	<li class="breadcrumb-item"><a href="{% url 'blog:index' %}">Home</a></li>
+    		<li class="breadcrumb-item active" aria-current="page">{{ blog_type.type_name }}</li>
+	  	</ol>
+	</nav>
+{% endblock %}
+
+{% block content %}
+	<h1>{{ blog_type.type_name }}</h1>
+	{% for blog in blogs %}
+		<a href="{% url 'blog:blog_detail' blog.pk %}"><h3>{{ blog.title }}</h3></a>
+		<p>{{ blog.content|truncatechars:30 }}</p>
+	{% empty %}
+		<p>--暂无博客,敬请期待--</p>
+	{% endfor %}
+{% endblock %}

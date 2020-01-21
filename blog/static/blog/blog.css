@@ -1,6 +1,12 @@
-.broad li{
-	display: inline-block;
-	padding-right: 10px;
+.navbar-brand {
+	font-family: 'Pacifico', cursive;
+	padding-left: 20px;
 }
 
+.navbar-nav {
+	padding-left: 80px;
+}
+.nav-item {
+	padding-left: 50px;
+}
 

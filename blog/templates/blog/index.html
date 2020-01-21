@@ -1,45 +1,18 @@
+{% extends 'blog/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>blog</title>
-	<link rel="stylesheet" href="{% static 'blog/blog.css' %}">
-	<link rel="stylesheet" href="{% static 'base.css' %}">
-	<link rel="stylesheet" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
-	<script type="text/javascript" src="{% static 'jquery-3.4.1.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'bootstrap-4.4.1-dist/js/bootstrap.min.js' %}"></script>
-</head>
-<body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand mr-auto mr-lg-0" href="{% url 'blog:index' %}">eagoalyg</a>
-		<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-			        <a class="nav-link" href="{% url 'blog:index' %}">首页<span class="sr-only">(current)</span></a>
-			    </li>
-				{% for blog_type in blog_types %}
-				<li class="nav-item">
-		        	<a class="nav-link" href="{% url 'blog:blog_classification' blog_type.pk %}">{{ blog_type.type_name }}</a>
-		    	</li>
-				{% endfor %}
-				 <li class="nav-item">
-				 	<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-				 </li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-		      	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		      	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		    </form>
-		</div>
+
+{% block title %}EAGOALYG|首页{% endblock %}
+
+{% block breadcrumb %}
+	<nav aria-label="breadcrumb">
+	  	<ol class="breadcrumb">
+	    	<li class="breadcrumb-item active" aria-current="page">首页</li>
+	  	</ol>
 	</nav>
-	
+{% endblock %}
+
+{% block content %}
     {% if blogs %}
 		
 		{% for blog in blogs %}
@@ -49,7 +22,4 @@
 	{% else %}
 		<p>No blog to watching</p>
 	{% endif%}
-</body>
-</html>
-
-
+{% endblock %}

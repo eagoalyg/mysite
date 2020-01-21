@@ -1,5 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block title %}EAGOALYG|博客{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  	<ol class="breadcrumb">
+    	<li class="breadcrumb-item"><a href="{% url 'blog:index' %}">Home</a></li>
+    	<li class="breadcrumb-item"><a href="{% url 'blog:blog_classification' blog.blog_type.pk %}">{{ blog.blog_type.type_name }}</a></li>
+    	<li class="breadcrumb-item active" aria-current="page">blog</li>
+ 	</ol>
+</nav>
+{% endblock %}
+
+{% block content %}
 <h1>博客</h1>
 <ul>
     <li>{{ blog.title }}</li>
     <li>{{ blog.content }}</li>
 </ul>
+{% endblock %}

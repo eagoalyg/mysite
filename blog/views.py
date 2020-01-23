@@ -26,3 +26,8 @@ def blog_classification(request, blog_type_pk):
     context = {'blog_types': blog_types, 'blog_type': blog_type, 'blogs': blogs}
     return render(request, 'blog/blog_classification.html', context)
 
+
+def new_blog(request):
+    blog_types = BlogType.objects.all()
+    context = {'blog_types': blog_types}
+    return render(request, 'blog/new_blog.html', context)

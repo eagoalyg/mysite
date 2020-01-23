@@ -14,6 +14,7 @@ class BlogType(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=30)
     blog_type = models.ForeignKey(BlogType, on_delete=models.DO_NOTHING)
+    created_at = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     #添加构造方法使返回的对象更易读

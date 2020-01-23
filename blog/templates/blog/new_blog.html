@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}EAGOALYG|new{% endblock %}
+
+{% block breadcrumb %}
+	<nav aria-label="breadcrumb">
+	  	<ol class="breadcrumb">
+	    	<li class="breadcrumb-item"><a href="{% url 'blog:index' %}">首页</a></li>
+	    	<li class="breadcrumb-item active" aria-current="page">new</li>
+	 	</ol>
+	</nav>
+{% endblock %}
+
+{% block content %}
+	
+	<form>
+		题目：<input type="text" name="title"><br>
+			类型：<select name="blog_type" id="id_blog_type">
+				{% for blog_type in blog_types %}
+					<option value={{ blog_type.type_name }}>{{ blog_type.type_name }}</option>
+				{% endfor %}
+		</select><br>
+		内容：<textarea name="content" id="id_content" cols="30" rows="10"></textarea>
+		<input type="submit" name="submit">
+	</form>
+	
+{% endblock %}

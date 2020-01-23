@@ -13,13 +13,18 @@
 {% endblock %}
 
 {% block content %}
-    {% if blogs %}
-		
+	{% if blogs %}	
 		{% for blog in blogs %}
-			<a href="{% url 'blog:blog_detail' blog.pk %}"><h3>{{ blog.title }}</h3></a>
-			<p>{{ blog.content|truncatechars:30 }}</p>
+			<div class="card">
+			  	<div class="card-body">
+			    	<a href="{% url 'blog:blog_detail' blog.pk %}"><h3>{{ blog.title }}</h3></a>
+					<p>{{ blog.content|truncatechars:120 }} ...</p>
+			  	</div>
+			</div>
 		{% endfor %}
 	{% else %}
-		<p>No blog to watching</p>
+		<p>－－暂无博客,敬请期待－－</p>
 	{% endif%}
 {% endblock %}
+
+

@@ -43,8 +43,16 @@
 
 	{% block breadcrumb %}{% endblock %}
 
-	{% block content %}{% endblock %}
- 
+	<div class="container">
+	  	<div class="row">
+	    	<div class="col-md-8">
+				{% block content %}{% endblock %}
+	    	</div>
+	    	<div class="col-md-4">
+	      		One of three columns
+	    	</div>
+	  	</div>
+	</div>
 </body>
 </html>
 

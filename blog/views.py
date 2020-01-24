@@ -1,5 +1,8 @@
+from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
+from .forms import NewBlogForm
 from .models import Blog, BlogType
+
 
 
 #主页视图
@@ -29,5 +32,21 @@ def blog_classification(request, blog_type_pk):
 
 def new_blog(request):
     blog_types = BlogType.objects.all()
-    context = {'blog_types': blog_types}
+    user = User.objects.first()
+    if request.method == 'POST':
+        form = NewBlogForm(request.POST)
+        if form.is_valid():
+            # TODO: 重写以下代码    
+            # blog = form.save()
+            # blog.title = title
+            # title = form.cleaned_data['title']
+            # content = form.cleaned_data['content']
+            # blog_type = form.cleaned_data['blog_type']
+            # created_at = form.cleaned_data['created_at']
+            # user = user
+            # return redirect('blog:index')
+            pass
+    else:
+        form = NewBlogForm()
+        context = {'form': form, 'blog_types': blog_types}
     return render(request, 'blog/new_blog.html', context)

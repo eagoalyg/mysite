@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import NewBlogForm
 from .models import Blog, BlogType
 
@@ -35,17 +35,11 @@ def new_blog(request):
     user = User.objects.first()
     if request.method == 'POST':
         form = NewBlogForm(request.POST)
-        if form.is_valid():
-            # TODO: 重写以下代码    
-            # blog = form.save()
-            # blog.title = title
-            # title = form.cleaned_data['title']
-            # content = form.cleaned_data['content']
-            # blog_type = form.cleaned_data['blog_type']
-            # created_at = form.cleaned_data['created_at']
-            # user = user
-            # return redirect('blog:index')
-            pass
+        if form.is_valid():   
+            blog = form.save(commit=False)
+            blog.author = user
+            blog.save()
+            return redirect('blog:index')
     else:
         form = NewBlogForm()
         context = {'form': form, 'blog_types': blog_types}

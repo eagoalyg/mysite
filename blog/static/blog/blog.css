@@ -6,7 +6,12 @@
 .navbar-nav {
 	padding-left: 80px;
 }
+
 .nav-item {
 	padding-left: 50px;
+}
+
+.container {
+	padding-top: 120px;
 }
 

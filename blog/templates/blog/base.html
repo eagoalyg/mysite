@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
 	<script type="text/javascript" src="{% static 'jquery-3.4.1.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'bootstrap-4.4.1-dist/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'blog/backtop.js' %}"></script>
 </head>
 
 <body>
@@ -52,7 +53,11 @@
 	    	</div>
 	    	<div class="col-md-4">
 	      		One of three columns
-	      		<a class="btn btn-outline-secondary" href="{% url 'blog:new_blog' %}" role="button">NEW</a>
+	      		<div class="fixed">
+	      			<button type="button" id="BackTop" class="backtop">TOP</button>
+	     			<a href="{% url 'blog:new_blog' %}"><button class="new_blog">NEW</button>
+	     			</a>		      		
+	      		</div>      		
 	    	</div>
 	  	</div>
 	</div>
